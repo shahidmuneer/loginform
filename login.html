@@ -1,0 +1,107 @@
+
+<!doctype html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+        <link rel="stylesheet" src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css">
+        <script src="cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+        <title>${1:title}</title>
+        <meta name="description" content="${2:description content}">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!--[if lt IE 9]> HTML5Shiv
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <style>
+        .row{
+    margin-top:20px;
+    
+}
+h2{
+    
+    text-align:center;
+   border-bottom:2px solid white;
+    border-radius:4px;
+    color:white;
+}
+.bordered{
+    border-radius:5px;
+   padding:10px;
+    background-color:#9e9e9e;
+    
+    
+}
+
+        </style>
+    </head>
+    <body>
+        ${3:body}
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+	    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+	    <script>
+            var _gaq=[['_setAccount','${4:UA-XXXXX-X}'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+        <script>
+        $(document).ready(function(){
+    
+    $("#password").css({"display":"none"});
+        $("#sub").css({"display":"none"});
+    $("#email").on("keyup",function(e){
+              var key=e.keyCode;
+                          if(key==13){
+                         
+                      $("#email").delay(100).fadeOut(100);     
+                      $("#password").delay(100).fadeIn(100);
+                      $("#password").focus();
+                    $("#gli").addClass("glyphicon-lock");    
+                    
+                         }
+        
+    });
+    
+       $("#password").on("keyup",function(e){
+              var key=e.keyCode;
+                          if(key===8 && $(this).val()===''){
+                         
+                      $("#email").delay(100).fadeIn(100);     
+                      $("#password").delay(100).fadeOut(100);
+                      $("#email").focus();
+                          $("#gli").removeClass("glyphicon-lock");     
+                         }
+        if(key==13){
+            //submit your form here
+            }
+    });
+    
+})
+        </script>
+        
+        
+
+<div class="container">
+	<div class="row">
+		<div class="col col-lg-offset-2 col-lg-8 col-md-offset-1 col-xs-offset-1 col-xs-10 centered bordered">
+		<h2 >A smart and simple login form<small style="color:#ffebee; font-size:12px;"> Press enter to submit requrest</small></h2>
+		<form>
+		   
+		       	    <label class="col col-lg-offset-2 col-lg-8 col-md-offset-1 col-xs-offset-1 col-xs-10" style="padding:10px;">
+		       	       <span id="gli" class="glyphicon glyphicon-user col col-xs-offset-5" style="color:white; text-align:center; font-size:54px;">		   </span>
+		       	        <input id="email" type="text" class="form-control" placeholder="Enter email address">
+
+<input id="password" type="text" class="form-control" placeholder="Enter Password" >
+
+		    </label>
+		    <!--<button class="btn btn-default col-xs-offset-5" id="sub" >Submit</button>-->
+		</form>
+	
+		</div>
+	</div>
+</div>
+        
+    </body>
+</html>
